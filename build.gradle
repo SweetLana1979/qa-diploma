@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'io.freefair.lombok' version '5.2.1'
+}
+
+group = 'ru.netology'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.jetbrains:annotations:24.0.0'
+    testImplementation group: 'com.codeborne', name: 'selenide', version: '6.19.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    testImplementation 'commons-dbutils:commons-dbutils:1.7'
+    testImplementation 'org.postgresql:postgresql:42.2.27'
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.3.2'
+    testImplementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.5'
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty 'db.url', System.getProperty('db.url', "jdbc:postgresql://localhost:5432/app")
+    systemProperty 'db.user', System.getProperty('db.user', 'app')
+    systemProperty 'db.password', System.getProperty('db.password', 'pass')
+}
