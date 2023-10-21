@@ -29,6 +29,24 @@ public class SQL {
             sqlException.printStackTrace();
             return null;
         }
+
+    }
+
+     public static void dropDB() {
+        QueryRunner runner = new QueryRunner();
+        String payment = "DELETE FROM payment_entity";
+        String credit = "DELETE FROM credit_request_entity";
+        String order = "DELETE FROM order_entity";
+
+        getConnection();
+        try {
+            runner.update(connection, order);
+            runner.update(connection, payment);
+            runner.update(connection, credit);
+        } catch (SQLException sqlException) {
+            System.out.println("Error drop database: " + sqlException.getMessage());
+            sqlException.printStackTrace();
+        }
     }
 
     public static PaymentEntity fetchPaymentEntity() {
@@ -43,7 +61,41 @@ public class SQL {
                 System.out.println("No payment found in the database.");
             }
         } catch (SQLException sqlException) {
-            System.out.println("Error fetching payment status from the database: " + sqlException.getMessage());
+            System.out.println("Error fetching payment from the database: " + sqlException.getMessage());
+            sqlException.printStackTrace();
+        }
+        return null;
+    }
+    public static CreditEntity fetchCreditEntity() {
+        String statusQuery = "SELECT * FROM credit_request_entity";
+        QueryRunner runner = new QueryRunner();
+        getConnection();
+        try {
+            CreditEntity creditEntity = runner.query(connection, statusQuery, new BeanHandler<>(CreditEntity.class));
+            if (creditEntity != null) {
+                return creditEntity;
+            } else {
+                System.out.println("No credit payment found in the database.");
+            }
+        } catch (SQLException sqlException) {
+            System.out.println("Error fetching credit payment from the database: " + sqlException.getMessage());
+            sqlException.printStackTrace();
+        }
+        return null;
+    }
+    public static OrderEntity fetchOrderEntity() {
+        String statusQuery = "SELECT * FROM order_entity";
+        QueryRunner runner = new QueryRunner();
+        getConnection();
+        try {
+            OrderEntity orderEntity = runner.query(connection, statusQuery, new BeanHandler<>(OrderEntity.class));
+            if (orderEntity != null) {
+                return orderEntity;
+            } else {
+                System.out.println("No order found in the database.");
+            }
+        } catch (SQLException sqlException) {
+            System.out.println("Error fetching order from the database: " + sqlException.getMessage());
             sqlException.printStackTrace();
         }
         return null;

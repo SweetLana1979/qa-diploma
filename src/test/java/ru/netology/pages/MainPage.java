@@ -22,11 +22,11 @@ public class MainPage {
     private final SelenideElement cardholderField = fieldSet.get(3);
     private final SelenideElement cvvField = $("input[placeholder='999']");
     private final SelenideElement continueButton = $$("button").find(exactText("Продолжить"));
-    private final SelenideElement successNotification = $(byText("Операция одобрена банком."));
+    private final SelenideElement successNotification = $(byText("Операция одобрена Банком."));
     private final SelenideElement noSuccessNotification = $(byText("Ошибка! Банк отказал в проведении операции."));
     private final SelenideElement wrongFormatNotification = $(byText("Неверный формат"));
     private final SelenideElement wrongValidityPeriodNotification = $(byText("Неверно указан срок действия карты"));
-    private final SelenideElement expiredPeriodNotification = $(byText("Истек срок действия карты"));
+    private final SelenideElement expiredPeriodNotification = $(byText("Истёк срок действия карты"));
     private final SelenideElement mandatoryFieldNotification = $(byText("Поле обязательно для заполнения"));
 
 

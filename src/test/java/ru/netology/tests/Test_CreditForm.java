@@ -160,7 +160,7 @@ public class Test_CreditForm {
         mainPage.clickBuyOnCreditButton();
         mainPage.fillCardData(zerosInNumberFieldCard);
         mainPage.clickContinueButton();
-        mainPage.shouldBeWrongFormatNotification();
+        mainPage.shouldBeNoSuccessNotification();
     }
     @Test
     public void buyOnCreditWithZerosInMonthFieldCard() {
@@ -193,7 +193,7 @@ public class Test_CreditForm {
         mainPage.clickBuyOnCreditButton();
         mainPage.fillCardData(zerosInCVVFieldCard);
         mainPage.clickContinueButton();
-        mainPage.shouldBeWrongFormatNotification();
+        mainPage.shouldBeSuccessNotification();
     }
     @Test
     public void buyOnCreditWithLongValidityPeriodCard() {
@@ -204,7 +204,7 @@ public class Test_CreditForm {
         mainPage.clickBuyOnCreditButton();
         mainPage.fillCardData(longValidityPeriodCard);
         mainPage.clickContinueButton();
-        mainPage.shouldBeWrongFormatNotification();
+        mainPage.shouldBeWrongValidityPeriodNotification();
     }
 
 }

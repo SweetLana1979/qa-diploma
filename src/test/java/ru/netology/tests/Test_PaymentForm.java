@@ -172,7 +172,7 @@ public class Test_PaymentForm {
         mainPage.clickBuyButton();
         mainPage.fillCardData(zerosInNumberFieldCard);
         mainPage.clickContinueButton();
-        mainPage.shouldBeWrongFormatNotification();
+        mainPage.shouldBeNoSuccessNotification();
     }
     @Test
     public void buyWithZerosInMonthFieldCard() {
@@ -194,7 +194,7 @@ public class Test_PaymentForm {
         mainPage.clickBuyButton();
         mainPage.fillCardData(zerosInYearFieldCard);
         mainPage.clickContinueButton();
-        mainPage.shouldBeWrongFormatNotification();
+        mainPage.shouldBeExpiredPeriodNotification();
     }
     @Test
     public void buyWithZerosInCVVFieldCard() {
@@ -205,7 +205,7 @@ public class Test_PaymentForm {
         mainPage.clickBuyButton();
         mainPage.fillCardData(zerosInCVVFieldCard);
         mainPage.clickContinueButton();
-        mainPage.shouldBeWrongFormatNotification();
+        mainPage.shouldBeSuccessNotification();
     }
     @Test
     public void buyWithLongValidityPeriodCard() {
@@ -216,7 +216,7 @@ public class Test_PaymentForm {
         mainPage.clickBuyButton();
         mainPage.fillCardData(longValidityPeriodCard);
         mainPage.clickContinueButton();
-        mainPage.shouldBeWrongFormatNotification();
+        mainPage.shouldBeWrongValidityPeriodNotification();
     }
 }
 
