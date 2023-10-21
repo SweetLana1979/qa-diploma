@@ -51,7 +51,7 @@ public class MainPage {
     public void shouldBeWrongFormatNotification() {
         wrongFormatNotification.shouldBe(Condition.visible, Duration.ofSeconds(15));
     }
-    public void shouldWrongValidityPeriodNotification() {
+    public void shouldBeWrongValidityPeriodNotification() {
         wrongValidityPeriodNotification.shouldBe(Condition.visible, Duration.ofSeconds(15));
     }
     public void shouldBeExpiredPeriodNotification() {
