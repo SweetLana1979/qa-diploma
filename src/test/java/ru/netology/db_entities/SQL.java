@@ -11,9 +11,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class SQL {
-    private static final String url = "jdbc:postgresql://localhost:5432/app";
-    private static final String user = "app";
-    private static final String password = "pass";
+    private static final String url = System.getProperty("db.url");
+    private static final String user = System.getProperty("db.user");
+    private static final String password = System.getProperty("db.password");
+
 
     private static Connection connection;
 
@@ -38,11 +39,13 @@ public class SQL {
         String credit = "DELETE FROM credit_request_entity";
         String order = "DELETE FROM order_entity";
 
+
         getConnection();
         try {
-            runner.update(connection, order);
+
             runner.update(connection, payment);
             runner.update(connection, credit);
+            runner.update(connection, order);
         } catch (SQLException sqlException) {
             System.out.println("Error drop database: " + sqlException.getMessage());
             sqlException.printStackTrace();
@@ -83,21 +86,5 @@ public class SQL {
         }
         return null;
     }
-    public static OrderEntity fetchOrderEntity() {
-        String statusQuery = "SELECT * FROM order_entity";
-        QueryRunner runner = new QueryRunner();
-        getConnection();
-        try {
-            OrderEntity orderEntity = runner.query(connection, statusQuery, new BeanHandler<>(OrderEntity.class));
-            if (orderEntity != null) {
-                return orderEntity;
-            } else {
-                System.out.println("No order found in the database.");
-            }
-        } catch (SQLException sqlException) {
-            System.out.println("Error fetching order from the database: " + sqlException.getMessage());
-            sqlException.printStackTrace();
-        }
-        return null;
-    }
+
 }

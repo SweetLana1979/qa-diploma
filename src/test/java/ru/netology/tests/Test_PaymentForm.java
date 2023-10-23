@@ -1,11 +1,27 @@
 package ru.netology.tests;
 
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import ru.netology.db_entities.Data;
 import ru.netology.pages.MainPage;
+import com.codeborne.selenide.logevents.SelenideLogger;
+
+
 
 public class Test_PaymentForm {
+
+    @BeforeAll
+    static void setupAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
+    }
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
+    }
 
     @Test
     public void buyWithApprovedCard() {

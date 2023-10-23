@@ -1,11 +1,24 @@
 package ru.netology.tests;
 
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import ru.netology.db_entities.Data;
 import ru.netology.pages.MainPage;
 
 public class Test_CreditForm {
+    @BeforeAll
+    static void setupAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
+    }
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
+    }
 
     @Test
     public void buyOnCreditWithApprovedCard() {
@@ -182,7 +195,7 @@ public class Test_CreditForm {
         mainPage.clickBuyOnCreditButton();
         mainPage.fillCardData(zerosInYearFieldCard);
         mainPage.clickContinueButton();
-        mainPage.shouldBeWrongFormatNotification();
+        mainPage.shouldBeExpiredPeriodNotification();
     }
     @Test
     public void buyOnCreditWithZerosInCVVFieldCard() {

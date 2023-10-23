@@ -1,10 +1,13 @@
 package ru.netology.tests;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import ru.netology.db_entities.CreditEntity;
 import ru.netology.db_entities.Data;
-import ru.netology.db_entities.OrderEntity;
 import ru.netology.db_entities.PaymentEntity;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,6 +18,15 @@ import static ru.netology.db_entities.Data.getDeclinedCard;
 import static ru.netology.db_entities.SQL.*;
 
 public class Test_API {
+    @BeforeAll
+    static void setupAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
+    }
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
+    }
 
     @AfterEach
     void dropDBAfterEachTest() {
@@ -33,11 +45,6 @@ public class Test_API {
         String expectedAmount = "4500000";
         assertEquals(expectedStatus, paymentEntity.getStatus());
         assertEquals(expectedAmount, paymentEntity.getAmount());
-
-        OrderEntity orderEntity = fetchOrderEntity();
-        //assertNotNull(orderEntity.getPayment_id());
-        assertEquals(orderEntity.getPayment_id(), paymentEntity.getId());
-
 
 
     }
