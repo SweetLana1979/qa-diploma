@@ -6,7 +6,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import ru.netology.db_entities.Data;
+import ru.netology.data.Data;
 import ru.netology.pages.MainPage;
 
 public class Test_CreditForm {

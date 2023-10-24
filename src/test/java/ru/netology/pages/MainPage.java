@@ -3,7 +3,7 @@ package ru.netology.pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import ru.netology.db_entities.Data;
+import ru.netology.data.Data;
 
 import java.time.Duration;
 

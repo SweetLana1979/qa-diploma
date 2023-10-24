@@ -1,13 +1,14 @@
-package ru.netology.db_entities;
+package ru.netology.data.db_entities;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class CreditEntity {
+public class PaymentEntity {
     String id;
-    String bank_id;
+    String amount;
     String created;
     String status;
+    String transaction_id;
 }

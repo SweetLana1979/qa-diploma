@@ -1,7 +1,8 @@
-package ru.netology.db_entities;
+package ru.netology.data;
 
 
-import ru.netology.db_entities.PaymentEntity;
+import ru.netology.data.db_entities.CreditEntity;
+import ru.netology.data.db_entities.PaymentEntity;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.jetbrains.annotations.Nullable;
@@ -23,7 +24,7 @@ public class SQL {
             if (connection != null) {
                 return connection;
             }
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/app", user, password);
+            connection = DriverManager.getConnection(url, user, password);
             return connection;
         } catch (SQLException sqlException) {
             System.out.println("No connection with DB:" + sqlException.getMessage());
@@ -35,9 +36,9 @@ public class SQL {
 
      public static void dropDB() {
         QueryRunner runner = new QueryRunner();
-        String payment = "DELETE FROM payment_entity";
-        String credit = "DELETE FROM credit_request_entity";
-        String order = "DELETE FROM order_entity";
+        String payment = "DROP TABLE payment_entity";
+        String credit = "DROP TABLE credit_request_entity";
+        String order = "DROP TABLE order_entity";
 
 
         getConnection();
