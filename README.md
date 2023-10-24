@@ -14,7 +14,7 @@
 
 [Отчёт о проведённом тестировании](https://github.com/SweetLana1979/qa-diploma/blob/main/docs/Report.md)
 
-[Комплексный отчёт о проведённой автоматизации тестирования](https://github.com////////////////)
+[Комплексный отчёт о проведённой автоматизации тестирования]((https://github.com/SweetLana1979/qa-diploma/blob/main/docs/Summary.md)
 
 
 ## Запуск приложения
