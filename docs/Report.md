@@ -14,7 +14,7 @@
 - Неуспешных кейсов 15% (6 кейсов)
 
 ### При подключении к БД PostgreSQL
-![tests result postgresql image](https://) 
+![Allure Report_Postgres](https://github.com/SweetLana1979/qa-diploma/assets/133034455/299aab92-973b-4db7-b372-3f0034a9da24)
 
 - Успешных кейсов 85% (30 кейсов)
 - Неуспешных кейсов 15% (6 кейсов)
@@ -29,7 +29,6 @@
 
 ## API-тесты
 При подключении к обеим БД все тест-кейсы прошли успешно (4 шт.)
-![api tests image](https://)
 
 ## Общие рекомендации
 
