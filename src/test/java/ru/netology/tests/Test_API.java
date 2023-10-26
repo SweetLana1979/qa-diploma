@@ -29,9 +29,11 @@ public class Test_API {
     }
 
     @AfterEach
-    void dropDBAfterEachTest() {
-        dropDB();
+    void deleteDBAfterEachTest() {
+        deleteDB();
     }
+
+
     @Test
     void buyWithApprovedCard() {
         // Check API

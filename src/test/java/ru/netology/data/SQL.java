@@ -34,11 +34,11 @@ public class SQL {
 
     }
 
-     public static void dropDB() {
+     public static void deleteDB() {
         QueryRunner runner = new QueryRunner();
-        String payment = "DROP TABLE payment_entity";
-        String credit = "DROP TABLE credit_request_entity";
-        String order = "DROP TABLE order_entity";
+        String payment = "DELETE FROM payment_entity";
+        String credit = "DELETE FROM credit_request_entity";
+        String order = "DELETE FROM order_entity";
 
 
         getConnection();
@@ -48,7 +48,7 @@ public class SQL {
             runner.update(connection, credit);
             runner.update(connection, order);
         } catch (SQLException sqlException) {
-            System.out.println("Error drop database: " + sqlException.getMessage());
+            System.out.println("Error delete database: " + sqlException.getMessage());
             sqlException.printStackTrace();
         }
     }
