@@ -11,8 +11,8 @@ import ru.netology.data.Data;
 import ru.netology.data.db_entities.PaymentEntity;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static ru.netology.API.SendCreditRequest;
-import static ru.netology.API.SendPaymentRequest;
+import static ru.netology.data.API.SendCreditRequest;
+import static ru.netology.data.API.SendPaymentRequest;
 import static ru.netology.data.Data.getApprovedCard;
 import static ru.netology.data.Data.getDeclinedCard;
 import static ru.netology.data.SQL.*;

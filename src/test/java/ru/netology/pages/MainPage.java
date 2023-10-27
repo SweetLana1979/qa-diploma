@@ -8,6 +8,7 @@ import ru.netology.data.Data;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -49,16 +50,16 @@ public class MainPage {
         noSuccessNotification.shouldBe(Condition.visible, Duration.ofSeconds(15));
     }
     public void shouldBeWrongFormatNotification() {
-        wrongFormatNotification.shouldBe(Condition.visible, Duration.ofSeconds(15));
+        wrongFormatNotification.shouldBe(Condition.visible);
     }
     public void shouldBeWrongValidityPeriodNotification() {
-        wrongValidityPeriodNotification.shouldBe(Condition.visible, Duration.ofSeconds(15));
+        wrongValidityPeriodNotification.shouldBe(Condition.visible);
     }
     public void shouldBeExpiredPeriodNotification() {
-        expiredPeriodNotification.shouldBe(Condition.visible, Duration.ofSeconds(15));
+        expiredPeriodNotification.shouldBe(Condition.visible);
     }
     public void shouldBeMandatoryFieldNotification() {
-        mandatoryFieldNotification.shouldBe(Condition.visible, Duration.ofSeconds(15));
+        mandatoryFieldNotification.shouldBe(Condition.visible);
 
     }
 
