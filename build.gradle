@@ -23,7 +23,6 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.jetbrains:annotations:24.0.0'
     testImplementation group: 'com.codeborne', name: 'selenide', version: '6.19.0'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     testImplementation 'commons-dbutils:commons-dbutils:1.7'
@@ -32,6 +31,7 @@ dependencies {
     testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.3.2'
     testImplementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.5'
     testImplementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.32'
+    testImplementation 'com.github.javafaker:javafaker:1.0.2'
 }
 
 test {
@@ -42,5 +42,4 @@ test {
     // Для запуска тестов с определённой базой данных раскомментируйте нужную строку
     systemProperty 'db.url', System.getProperty('db.url', 'jdbc:mysql://localhost:3306/app')
     //systemProperty 'db.url', System.getProperty('db.url', "jdbc:postgresql://localhost:5432/app")
-
 }

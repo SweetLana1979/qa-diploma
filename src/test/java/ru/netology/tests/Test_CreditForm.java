@@ -4,10 +4,16 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import ru.netology.data.Data;
+import ru.netology.data.db_entities.PaymentEntity;
 import ru.netology.pages.MainPage;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static ru.netology.data.SQL.deleteDB;
+import static ru.netology.data.SQL.fetchPaymentEntity;
 
 public class Test_CreditForm {
     @BeforeAll
@@ -18,6 +24,11 @@ public class Test_CreditForm {
     @AfterAll
     static void tearDownAll() {
         SelenideLogger.removeListener("allure");
+    }
+
+    @AfterEach
+    void deleteDBAfterEachTest() {
+        deleteDB();
     }
 
     @Test

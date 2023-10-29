@@ -21,8 +21,8 @@ public class Test_API {
     @BeforeAll
     static void setupAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
-
     }
+
     @AfterAll
     static void tearDownAll() {
         SelenideLogger.removeListener("allure");
@@ -33,7 +33,6 @@ public class Test_API {
         deleteDB();
     }
 
-
     @Test
     void buyWithApprovedCard() {
         // Check API
@@ -41,15 +40,9 @@ public class Test_API {
         String expected = "{\"status\":\"APPROVED\"}";
         String requestStatus = SendPaymentRequest(validApprovedCard); // JSON
         assertEquals(expected, requestStatus);
-        // Check DB
-        PaymentEntity paymentEntity = fetchPaymentEntity();
-        String expectedStatus = "APPROVED";
-        String expectedAmount = "4500000";
-        assertEquals(expectedStatus, paymentEntity.getStatus());
-        assertEquals(expectedAmount, paymentEntity.getAmount());
-
-
+        Test_Utils.shouldHavePaymentEntity();
     }
+
     @Test
     void buyOnCreditWithApprovedCard() {
         // Check API
@@ -61,8 +54,8 @@ public class Test_API {
         CreditEntity creditEntity = fetchCreditEntity();
         String expectedStatus = "APPROVED";
         assertEquals(expectedStatus, creditEntity.getStatus());
-
     }
+
     @Test
     void buyWithDeclinedCard() {
         // Check API
@@ -74,7 +67,6 @@ public class Test_API {
         PaymentEntity paymentEntity = fetchPaymentEntity();
         String expectedStatus = "DECLINED";
         assertEquals(expectedStatus, paymentEntity.getStatus());
-
     }
 
     @Test
@@ -88,7 +80,6 @@ public class Test_API {
         CreditEntity creditEntity = fetchCreditEntity();
         String expectedStatus = "DECLINED";
         assertEquals(expectedStatus, creditEntity.getStatus());
-
     }
 
 }

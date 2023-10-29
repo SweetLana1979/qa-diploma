@@ -35,8 +35,8 @@ docker-compose up
 ## Запуск тестов
 6. Выбрать базу данных. Для этого нужно в файле build.gradle раскомментировать строку с адресом соответствующей базы данных.
 7. В новой вкладке терминала ввести команду в зависимости от запущенной БД:
-- `./gradlew test -Ddb.url=jdbc:mysql://localhost:3306/app` - для MySQL
-- `./gradlew test -Ddb.url=jdbc:postgresql://localhost:5432/app` - для PostgreSQL
+- `./gradlew test "-Ddb.url=jdbc:mysql://localhost:3306/app"` - для MySQL
+- `./gradlew test "-Ddb.url=jdbc:postgresql://localhost:5432/app"` - для PostgreSQL
 
 ## Перезапуск приложения и тестов
 7. Остановить SUT командой CTRL + C

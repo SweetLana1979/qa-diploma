@@ -5,7 +5,6 @@ import ru.netology.data.db_entities.CreditEntity;
 import ru.netology.data.db_entities.PaymentEntity;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
-import org.jetbrains.annotations.Nullable;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,10 +15,9 @@ public class SQL {
     private static final String user = System.getProperty("db.user");
     private static final String password = System.getProperty("db.password");
 
-
     private static Connection connection;
 
-    public static @Nullable Connection getConnection() {
+    public static Connection getConnection() {
         try {
             if (connection != null) {
                 return connection;
@@ -27,11 +25,9 @@ public class SQL {
             connection = DriverManager.getConnection(url, user, password);
             return connection;
         } catch (SQLException sqlException) {
-            System.out.println("No connection with DB:" + sqlException.getMessage());
             sqlException.printStackTrace();
             return null;
         }
-
     }
 
      public static void deleteDB() {
@@ -48,7 +44,6 @@ public class SQL {
             runner.update(connection, credit);
             runner.update(connection, order);
         } catch (SQLException sqlException) {
-            System.out.println("Error delete database: " + sqlException.getMessage());
             sqlException.printStackTrace();
         }
     }
@@ -61,11 +56,8 @@ public class SQL {
             PaymentEntity paymentEntity = runner.query(connection, statusQuery, new BeanHandler<>(PaymentEntity.class));
             if (paymentEntity != null) {
                 return paymentEntity;
-            } else {
-                System.out.println("No payment found in the database.");
             }
         } catch (SQLException sqlException) {
-            System.out.println("Error fetching payment from the database: " + sqlException.getMessage());
             sqlException.printStackTrace();
         }
         return null;
@@ -78,11 +70,8 @@ public class SQL {
             CreditEntity creditEntity = runner.query(connection, statusQuery, new BeanHandler<>(CreditEntity.class));
             if (creditEntity != null) {
                 return creditEntity;
-            } else {
-                System.out.println("No credit payment found in the database.");
             }
         } catch (SQLException sqlException) {
-            System.out.println("Error fetching credit payment from the database: " + sqlException.getMessage());
             sqlException.printStackTrace();
         }
         return null;
