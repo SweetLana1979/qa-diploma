@@ -8,14 +8,16 @@
 
 ## Статистика успешных/неуспешных кейсов
 ### При подключении к БД MySQL
-![Allure Report_MYSQL ](https://github.com/SweetLana1979/qa-diploma/assets/133034455/7afc2a3b-af16-48c7-8dc7-5e72f48deb28)
+![Allure Report_MYSQL ](https://github.com/SweetLana1979/qa-diploma/assets/133034455/038f131b-2185-4067-aa28-b9a6b0d68660)
+
 
 
 - Успешных кейсов 85% (30 кейсов)
 - Неуспешных кейсов 15% (6 кейсов)
 
 ### При подключении к БД PostgreSQL
-![Allure Report_Postgres](https://github.com/SweetLana1979/qa-diploma/assets/133034455/299aab92-973b-4db7-b372-3f0034a9da24)
+![Allure Report_Postgres](https://github.com/SweetLana1979/qa-diploma/assets/133034455/92f9476c-ddbe-4bec-a950-14d82cd4d90d)
+
 
 - Успешных кейсов 85% (30 кейсов)
 - Неуспешных кейсов 15% (6 кейсов)
