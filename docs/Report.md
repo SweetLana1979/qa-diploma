@@ -16,7 +16,8 @@
 - Неуспешных кейсов 25% (10 кейсов)
 
 ### При подключении к БД PostgreSQL
-![Allure Report_Postgres](https://github.com/SweetLana1979/qa-diploma/assets/133034455/92f9476c-ddbe-4bec-a950-14d82cd4d90d)
+![Allure Report_Postgres ](https://github.com/SweetLana1979/qa-diploma/assets/133034455/8aff9970-bf59-4cf8-8db2-8e5a2cfbf3c3)
+
 
 
 - Успешных кейсов 75% (30 кейсов)
