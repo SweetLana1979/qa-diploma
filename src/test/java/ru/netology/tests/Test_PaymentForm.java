@@ -45,7 +45,7 @@ public class Test_PaymentForm {
         mainPage.clickContinueButton();
         mainPage.shouldBeSuccessNotification();
 
-        Test_Utils.shouldHavePaymentEntity();
+        Test_Utils.shouldHavePaymentEntityForApprovedCard();
     }
 
     @Test
@@ -58,6 +58,8 @@ public class Test_PaymentForm {
         mainPage.fillCardData(declinedCard);
         mainPage.clickContinueButton();
         mainPage.shouldBeNoSuccessNotification();
+
+        Test_Utils.shouldHavePaymentEntityForDeclinedCard();
     }
 
     @Test

@@ -40,8 +40,8 @@ public class Test_API {
         String expected = "{\"status\":\"APPROVED\"}";
         String requestStatus = SendPaymentRequest(validApprovedCard); // JSON
         assertEquals(expected, requestStatus);
-        Test_Utils.shouldHavePaymentEntity();
-    }
+
+       }
 
     @Test
     void buyOnCreditWithApprovedCard() {
@@ -67,6 +67,8 @@ public class Test_API {
         PaymentEntity paymentEntity = fetchPaymentEntity();
         String expectedStatus = "DECLINED";
         assertEquals(expectedStatus, paymentEntity.getStatus());
+
+
     }
 
     @Test

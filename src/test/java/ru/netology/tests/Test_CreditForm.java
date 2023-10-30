@@ -41,6 +41,8 @@ public class Test_CreditForm {
         mainPage.fillCardData(approvedCard);
         mainPage.clickContinueButton();
         mainPage.shouldBeSuccessNotification();
+
+        Test_Utils.shouldHaveCreditEntityForApprovedCard();
     }
 
     @Test
@@ -53,6 +55,8 @@ public class Test_CreditForm {
         mainPage.fillCardData(declinedCard);
         mainPage.clickContinueButton();
         mainPage.shouldBeNoSuccessNotification();
+
+        Test_Utils.shouldHaveCreditEntityForDeclinedCard();
     }
     @Test
     public void buyOnCreditWithNonexistentCard() {
